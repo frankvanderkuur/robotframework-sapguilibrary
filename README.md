@@ -2,7 +2,7 @@
 This library is created to automate testing the SAP GUI desktop client using the Robot Framework. It uses the native Sap Gui Scripting engine to interact with the SAP GUI interface.
 
 ## Installation
-ExcellentLibrary can be found on PyPI: https://pypi.org/project/robotframework-sapguilibrary.
+SapGuiLibrary can be found on PyPI: https://pypi.org/project/robotframework-sapguilibrary.
 
 To install, simply use pip:
 
