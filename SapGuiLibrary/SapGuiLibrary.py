@@ -33,7 +33,7 @@ class SapGuiLibrary:
     Default this option is enabled, use keyword `disable screenshots on error` to skip the screenshot functionality.
     Alternatively, this option can be set at import.
     """
-    __version__ = '1.0'
+    __version__ = '1.1'
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
 
     def __init__(self, screenshots_on_error=True, screenshot_directory=None):
@@ -665,6 +665,20 @@ class SapGuiLibrary:
             message = "Cannot send Vkey to given window, is window wnd[% s] actually open?" % window
             raise ValueError(message)
         time.sleep(self.explicit_wait)
+
+    def set_cell_value(self, table_id, row_num, col_id, text):
+        """Sets the cell value for the specified cell.
+        """
+        self.element_should_be_present(table_id)
+
+        try:
+            self.session.findById(table_id).modifyCell(row_num, col_id, text)
+            logger.info("Typing text '%s' into cell '%s', '%s'" % (text, row_num, col_id))
+            time.sleep(self.explicit_wait)
+        except com_error:
+            self.take_screenshot()
+            message = "Cannot type text '%s' into cell '%s', '%s'" % (text, row_num, col_id)
+            raise ValueError(message)
 
     def set_explicit_wait(self, speed):
         """Sets the delay time that is waited after each SapGui keyword.
