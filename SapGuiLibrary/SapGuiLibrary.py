@@ -667,7 +667,9 @@ class SapGuiLibrary:
         time.sleep(self.explicit_wait)
 
     def set_cell_value(self, table_id, row_num, col_id, text):
-        """Sets the cell value for the specified cell.
+        """Sets the cell value for the specified cell of a GridView 'table_id' which is contained within a shell object.
+
+        Use the Scripting tracker recorder to find the 'col_id' of the cell to set.
         """
         self.element_should_be_present(table_id)
 
