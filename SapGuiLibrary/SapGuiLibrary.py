@@ -542,6 +542,16 @@ class SapGuiLibrary:
         self.session.findById(tree_id).clickLink(link_id1, link_id2)
         time.sleep(self.explicit_wait)
 
+    def click_node_button(self, tree_id, node_id, button_id):
+        """Click a button 'button_id' within a node 'node_id' of a TableTreeControl
+        which is contained within a shell object 'tree_id'.
+
+        Use the Scripting tracker recorder to find these id's.
+        """
+        self.element_should_be_present(tree_id)
+        self.session.findById(tree_id).pressButton(node_id, button_id)
+        time.sleep(self.explicit_wait)
+
     def select_radio_button(self, element_id):
         """Sets radio button to the specified value.
         """
@@ -764,5 +774,18 @@ class SapGuiLibrary:
         else:
             self.take_screenshot()
             message = "Cannot use keyword 'unselect checkbox' for element type '%s'" % element_type
+            raise ValueError(message)
+        time.sleep(self.explicit_wait)
+
+    def submit_html(self, element_id, frame_name, post_data, url):
+        """Post (submit) the data from a HTMLViewer object with is contained within a shell object 'element_id'.
+
+        Use the scripting tracker recorder to find 'frame_name', 'post_data' and/or 'url'.
+        """
+        element_subtype = self.session.findById(element_id).subtype
+        if element_subtype == "HTMLViewer":
+            self.session.findById(element_id).sapEvent(frame_name, post_data, url)
+        else:
+            message = "Cannot use keyword 'submit_html' for element that is not of sub type 'HTMLViewer'"
             raise ValueError(message)
         time.sleep(self.explicit_wait)
