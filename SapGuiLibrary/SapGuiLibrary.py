@@ -33,7 +33,7 @@ class SapGuiLibrary:
     Default this option is enabled, use keyword `disable screenshots on error` to skip the screenshot functionality.
     Alternatively, this option can be set at import.
     """
-    __version__ = '1.1'
+    __version__ = '1.2'
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
 
     def __init__(self, screenshots_on_error=True, screenshot_directory=None):
