@@ -6,7 +6,7 @@ with open('README.md') as f:
 
 setup(
     name="robotframework-sapguilibrary",
-    version="1.1",
+    version="1.2",
     author="Frank van der Kuur",
     author_email="frank.vanderkuur@closesure.nl",
     description="A Robot Framework Library for automating the SAP GUI desktop client",
