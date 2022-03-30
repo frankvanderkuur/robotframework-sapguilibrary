@@ -33,7 +33,7 @@ class SapGuiLibrary:
     Default this option is enabled, use keyword `disable screenshots on error` to skip the screenshot functionality.
     Alternatively, this option can be set at import.
     """
-    __version__ = '1.1'
+    __version__ = '1.2'
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
 
     def __init__(self, screenshots_on_error=True, screenshot_directory=None):
@@ -178,6 +178,8 @@ class SapGuiLibrary:
          | *Element type*   | *possible values*                 |
          | textfield        | text                              |
          | label            | text                              |
+         | titlebar         | text                              |
+         | button           | text on the button                |
          | checkbox         | checked / unchecked               |
          | radiobutton      | checked / unchecked               |
          | combobox         | text of the option to be expected |
@@ -242,6 +244,8 @@ class SapGuiLibrary:
          | *Element type*   | *possible values*                 |
          | textfield        | text                              |
          | label            | text                              |
+         | titlebar         | text                              |
+         | button           | text on the button                |
          | combobox         | text of the option to be expected |
          """
         element_type = self.get_element_type(element_id)
