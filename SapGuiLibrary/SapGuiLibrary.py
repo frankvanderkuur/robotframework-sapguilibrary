@@ -189,6 +189,8 @@ class SapGuiLibrary:
         if (element_type == "GuiTextField"
                 or element_type == "GuiCTextField"
                 or element_type == "GuiComboBox"
+                or element_type == "GuiTitlebar"
+                or element_type == "GuiButton"
                 or element_type == "GuiLabel"):
             self.session.findById(element_id).setfocus()
             time.sleep(self.explicit_wait)
@@ -248,6 +250,8 @@ class SapGuiLibrary:
         if (element_type == "GuiTextField"
                 or element_type == "GuiCTextField"
                 or element_type == "GuiComboBox"
+                or element_type == "GuiTitlebar"
+                or element_type == "GuiButton"
                 or element_type == "GuiLabel"):
             self.session.findById(element_id).setfocus()
             actual_value = self.get_value(element_id)
