@@ -286,7 +286,7 @@ class SapGuiLibrary:
         self.element_should_be_present(table_id)
 
         try:
-            cellValue = self.session.findById(table_id).getCellValue(row_num, col_id)
+            cellValue = self.session.findById(table_id).getCell(row_num, col_id).text
             return cellValue
         except com_error:
             self.take_screenshot()
