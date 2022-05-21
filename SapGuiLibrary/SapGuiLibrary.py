@@ -412,6 +412,7 @@ class SapGuiLibrary:
         if (element_type == "GuiTextField"
                 or element_type == "GuiCTextField"
                 or element_type == "GuiShell"
+                or element_type == "GuiOkCodeField"
                 or element_type == "GuiPasswordField"):
             self.session.findById(element_id).text = text
             logger.info("Typing text '%s' into text field '%s'." % (text, element_id))
